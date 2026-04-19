@@ -59,4 +59,4 @@ You can find a more concrete sample project [here](examples/maven-sample/)
 
 # License
 
-Yakou is licenced under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
+Yakou is licensed under the [GNU General Public License, Version 3](LICENSE).
