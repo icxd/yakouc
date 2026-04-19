@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="dev.icxd.yakou.YakoucTest" time="0.08" tests="22" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="dev.icxd.yakou.YakoucTest" time="0.086" tests="22" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/24.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/icxd/dev/java/yakou/compiler/target/surefire/surefirebooter-20260419135244420_3.jar /Users/icxd/dev/java/yakou/compiler/target/surefire 2026-04-19T13-52-44_391-jvmRun1 surefire-20260419135244420_1tmp surefire_0-20260419135244420_2tmp"/>
+    <property name="sun.java.command" value="/Users/icxd/dev/java/yakou/compiler/target/surefire/surefirebooter-20260419154524753_3.jar /Users/icxd/dev/java/yakou/compiler/target/surefire 2026-04-19T15-45-24_718-jvmRun1 surefire-20260419154524753_1tmp surefire_0-20260419154524753_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/icxd/dev/java/yakou/compiler/target/test-classes:/Users/icxd/dev/java/yakou/compiler/target/classes:/Users/icxd/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/icxd/.m2/repository/org/ow2/asm/asm-commons/9.7.1/asm-commons-9.7.1.jar:/Users/icxd/.m2/repository/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar:/Users/icxd/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar:/Users/icxd/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/Users/icxd/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/icxd/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/Users/icxd/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/icxd/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar:/Users/icxd/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/Users/icxd/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/icxd/dev/java/yakou/compiler/target/surefire/surefirebooter-20260419135244420_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/icxd/dev/java/yakou/compiler/target/surefire/surefirebooter-20260419154524753_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="24.0.1"/>
@@ -58,12 +58,12 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="linkFailsWhenMultipleMains(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.004">
-    <system-err><![CDATA[error: duplicate definition: 'main'
- --> /var/folders/s7/3rspjv3j43xd9kqb831knt8w0000gn/T/junit-1824333455652440602/a.yk:1:1
-   |
- 1 | fn main(): unit {}
-   | ^^^^^^^^^^^^^^^^^^
+  <testcase name="linkFailsWhenMultipleMains(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.005">
+    <system-err><![CDATA[&amp#27;[1;91merror&amp#27;[0m: duplicate definition: 'main'
+&amp#27;[2m --> &amp#27;[0m&amp#27;[96m/var/folders/s7/3rspjv3j43xd9kqb831knt8w0000gn/T/junit-2730843551791195893/a.yk:1:1&amp#27;[0m
+&amp#27;[2m   |&amp#27;[0m
+ &amp#27;[2m1&amp#27;[0m&amp#27;[2m | &amp#27;[0mfn main(): unit {}
+  &amp#27;[2m |&amp#27;[0m &amp#27;[32m^^^^^^^^^^^^^^^^^^&amp#27;[0m
 ]]></system-err>
   </testcase>
   <testcase name="versionFlagExitsZero" classname="dev.icxd.yakou.YakoucTest" time="0.001">
@@ -71,9 +71,9 @@
 ]]></system-out>
   </testcase>
   <testcase name="parserSetsPrintTokens" classname="dev.icxd.yakou.YakoucTest" time="0.0"/>
-  <testcase name="compilesGenericConstructorCalls(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.015"/>
+  <testcase name="compilesGenericConstructorCalls(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.016"/>
   <testcase name="mergedResolveDiagnosticNamesSourceFileForSpan(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.003"/>
-  <testcase name="parserCollectsSourcesAndDashD" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
+  <testcase name="parserCollectsSourcesAndDashD" classname="dev.icxd.yakou.YakoucTest" time="0.0"/>
   <testcase name="mergesSourcesAtDifferentDirectoryDepths(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.004"/>
   <testcase name="helpFlagExitsZero" classname="dev.icxd.yakou.YakoucTest" time="0.001">
     <system-out><![CDATA[Usage: yakouc [options] file.yk [file.yk ...]
@@ -98,29 +98,29 @@ Options:
   --                 Stop processing options.
 ]]></system-out>
   </testcase>
-  <testcase name="compileEmitsClassFile(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
+  <testcase name="compileEmitsClassFile(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
   <testcase name="parserParsesSourceRoot" classname="dev.icxd.yakou.YakoucTest" time="0.0"/>
-  <testcase name="helpContainsUsageLine" classname="dev.icxd.yakou.YakoucTest" time="0.0"/>
+  <testcase name="helpContainsUsageLine" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
   <testcase name="linkFailsWhenNoTopLevelMain(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.001">
-    <system-err><![CDATA[error: link: no module defines top-level fn main (expected exactly one)
+    <system-err><![CDATA[&amp#27;[1;91merror&amp#27;[0m: link: no module defines top-level fn main (expected exactly one)
 ]]></system-err>
   </testcase>
   <testcase name="noInputFilesExitsNonZero" classname="dev.icxd.yakou.YakoucTest" time="0.001">
-    <system-err><![CDATA[error: no input files
+    <system-err><![CDATA[&amp#27;[1;91merror&amp#27;[0m: no input files
 Try 'yakouc --help' for more information.
 ]]></system-err>
   </testcase>
-  <testcase name="sourceRootMapsDirectoriesToQualifier(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.003"/>
-  <testcase name="compilesJavaInstanceFieldAccess(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.004"/>
+  <testcase name="sourceRootMapsDirectoriesToQualifier(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
+  <testcase name="compilesJavaInstanceFieldAccess(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.007"/>
   <testcase name="compilesJavaInstanceMethodCall(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
-  <testcase name="mergesMultipleSourcesUnderSameImplicitPackage(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
-  <testcase name="versionStringNonEmpty" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
-  <testcase name="launcherRuns(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.029"/>
-  <testcase name="unknownArgumentExitsNonZero" classname="dev.icxd.yakou.YakoucTest" time="0.0">
-    <system-err><![CDATA[error: unknown argument: '--not-a-real-flag'
+  <testcase name="mergesMultipleSourcesUnderSameImplicitPackage(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.003"/>
+  <testcase name="versionStringNonEmpty" classname="dev.icxd.yakou.YakoucTest" time="0.0"/>
+  <testcase name="launcherRuns(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.03"/>
+  <testcase name="unknownArgumentExitsNonZero" classname="dev.icxd.yakou.YakoucTest" time="0.001">
+    <system-err><![CDATA[&amp#27;[1;91merror&amp#27;[0m: unknown argument: '--not-a-real-flag'
 Try 'yakouc --help' for more information.
 ]]></system-err>
   </testcase>
-  <testcase name="compileOnlySkipsLink(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
-  <testcase name="printTokensLexesAndExitsZero(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
+  <testcase name="compileOnlySkipsLink(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.001"/>
+  <testcase name="printTokensLexesAndExitsZero(Path)" classname="dev.icxd.yakou.YakoucTest" time="0.002"/>
 </testsuite>

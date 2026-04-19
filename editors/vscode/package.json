@@ -64,7 +64,12 @@
             "type": "string"
           },
           "default": [],
-          "description": "Classpath entries for Java interop typechecking (initializationOptions.classpath). ${workspaceFolder} is expanded in each entry."
+          "description": "Classpath entries for Java interop (typechecking + completion). Point at dependency JARs/folders. Passed as initializationOptions.classpath; ${workspaceFolder} is expanded per entry."
+        },
+        "yakou.classpathFile": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a file containing one platform classpath string (e.g. from `mvn dependency:build-classpath -Dmdep.outputFile=...`). Merged with yakou.classpath. ${workspaceFolder} is expanded."
         }
       }
     }

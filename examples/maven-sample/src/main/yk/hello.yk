@@ -1,5 +1,0 @@
-use java::lang::System;
-
-fn main(): unit {
-    System::out.println("Hello, Yakou!")
-}

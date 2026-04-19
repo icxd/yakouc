@@ -40,6 +40,18 @@
       "include": "#numbers"
     },
     {
+      "include": "#path-segment"
+    },
+    {
+      "include": "#path-import-end"
+    },
+    {
+      "include": "#member-call"
+    },
+    {
+      "include": "#bare-call"
+    },
+    {
       "include": "#namespace-op"
     },
     {
@@ -210,6 +222,47 @@
       "match": "(?<!\\.)\\d+(?!\\.)",
       "name": "constant.numeric.integer.yakou"
     },
+    "path-segment": {
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=::)",
+      "captures": {
+        "1": {
+          "name": "entity.name.namespace.yakou"
+        }
+      }
+    },
+    "path-import-end": {
+      "match": "(::)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(;)",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.namespace.yakou"
+        },
+        "2": {
+          "name": "entity.name.type.import.yakou"
+        },
+        "3": {
+          "name": "punctuation.terminator.statement.yakou"
+        }
+      }
+    },
+    "member-call": {
+      "match": "(\\.)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": {
+          "name": "punctuation.accessor.yakou"
+        },
+        "2": {
+          "name": "entity.name.function.member.yakou"
+        }
+      }
+    },
+    "bare-call": {
+      "match": "\\b(?!(?:if|else|when|fn|let|use|pkg|trait|class|sealed|mut|pub|priv|open|override|self|is|true|false)\\b)([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": {
+          "name": "entity.name.function.call.yakou"
+        }
+      }
+    },
     "namespace-op": {
       "match": "::",
       "name": "keyword.operator.namespace.yakou"
@@ -229,8 +282,12 @@
           "name": "keyword.operator.yakou"
         },
         {
-          "match": "\\.|,|;|:|\\(|\\)|\\{|\\}|\\[|\\]",
+          "match": ",|;|:|\\(|\\)|\\{|\\}|\\[|\\]",
           "name": "punctuation.yakou"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor.yakou"
         }
       ]
     }

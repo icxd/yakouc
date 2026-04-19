@@ -1,0 +1,5 @@
+{
+  "yakou.classpathFile": "${workspaceFolder}/target/yakou-ls.classpath",
+  "yakou.sourceRoot": "${workspaceFolder}/src/main/yakou",
+  "java.configuration.updateBuildConfiguration": "automatic"
+}

@@ -21,7 +21,7 @@ buildNumber.properties
 .idea/
 
 # --- VS Code / Cursor (extension) ---
-.vscode/
+/.vscode/
 editors/vscode/node_modules/
 editors/vscode/out/
 

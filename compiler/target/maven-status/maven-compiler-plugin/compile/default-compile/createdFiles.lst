@@ -17,6 +17,7 @@ dev/icxd/yakou/emit/JavaEmit$1.class
 dev/icxd/yakou/emit/TyStack$1.class
 dev/icxd/yakou/resolve/Binding$Fn.class
 dev/icxd/yakou/ast/AstFile.class
+dev/icxd/yakou/cp/JavaMemberCompletion$MemberKind.class
 dev/icxd/yakou/syntax/Token.class
 dev/icxd/yakou/typeck/TypeResult.class
 dev/icxd/yakou/ast/Expr$Binary.class
@@ -45,6 +46,7 @@ dev/icxd/yakou/typeck/Ty.class
 dev/icxd/yakou/emit/BlockAsm.class
 dev/icxd/yakou/typeck/Elaborator.class
 dev/icxd/yakou/diagnostics/SourceSnippet.class
+dev/icxd/yakou/cp/ClasspathIndex.class
 dev/icxd/yakou/ast/Stmt.class
 dev/icxd/yakou/emit/JavaEmit.class
 dev/icxd/yakou/resolve/Scope.class
@@ -64,6 +66,7 @@ dev/icxd/yakou/resolve/ResolveIssue.class
 dev/icxd/yakou/typeck/Ty$FunTy.class
 dev/icxd/yakou/ArgumentParser$ParseResult.class
 dev/icxd/yakou/typeck/Unifier.class
+dev/icxd/yakou/cp/JavaMemberCompletion.class
 dev/icxd/yakou/Yakouc.class
 dev/icxd/yakou/syntax/SourceSpan.class
 dev/icxd/yakou/ast/Stmt$Let.class
@@ -92,6 +95,7 @@ dev/icxd/yakou/ast/Expr$If.class
 dev/icxd/yakou/resolve/Binding$Import.class
 dev/icxd/yakou/ast/Param.class
 dev/icxd/yakou/typeck/Ty$VarTy.class
+dev/icxd/yakou/cp/ClasspathIndex$1.class
 dev/icxd/yakou/typeck/Scheme.class
 dev/icxd/yakou/ast/Item$Pkg.class
 dev/icxd/yakou/ast/Expr$Call.class
@@ -119,6 +123,7 @@ dev/icxd/yakou/typeck/TypeIssue.class
 dev/icxd/yakou/resolve/Binding.class
 dev/icxd/yakou/typeck/TypecheckBundle.class
 dev/icxd/yakou/emit/TyStack.class
+dev/icxd/yakou/cp/JavaMemberCompletion$MemberProposal.class
 dev/icxd/yakou/syntax/Lexer.class
 dev/icxd/yakou/typeck/Env.class
 dev/icxd/yakou/typeck/ClasspathLoader.class
@@ -129,3 +134,4 @@ dev/icxd/yakou/diagnostics/DiagnosticFormatter.class
 dev/icxd/yakou/ast/Expr$Member.class
 dev/icxd/yakou/ast/Expr$Path.class
 dev/icxd/yakou/resolve/Binding$Method.class
+dev/icxd/yakou/cp/ClasspathIndex$2.class

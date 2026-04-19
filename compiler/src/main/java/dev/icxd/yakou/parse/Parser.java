@@ -439,7 +439,29 @@ public final class Parser {
     }
 
     private Expr parseExpr() {
-        return parseEquality();
+        Expr e = parseEquality();
+        consumeIncompleteTrailingDotIfPresent();
+        return e;
+    }
+
+    /**
+     * After parsing an expression, consume a lone {@code .} with no following
+     * identifier.
+     * That happens during member completion ({@code self.}) and similar edits;
+     * postfix
+     * parsing leaves the dot unconsumed so the receiver expr span ends at the dot
+     * offset.
+     */
+    private void consumeIncompleteTrailingDotIfPresent() {
+        if (!check(DOT)) {
+            return;
+        }
+        int saved = i;
+        advance();
+        if (check(IDENT)) {
+            i = saved;
+            throw error(peek(), "internal parse error: unexpected identifier after `.`");
+        }
     }
 
     private Expr parseEquality() {
@@ -550,7 +572,13 @@ public final class Parser {
                 List<Expr> args = parseExprList();
                 expect(RPAREN);
                 e = new Expr.Call(e, args, spanSince(chainStart));
-            } else if (match(DOT)) {
+            } else if (check(DOT)) {
+                int atDot = i;
+                advance();
+                if (!check(IDENT)) {
+                    i = atDot;
+                    break;
+                }
                 String name = expect(IDENT).lexeme();
                 e = new Expr.Member(e, name, spanSince(chainStart));
             } else {

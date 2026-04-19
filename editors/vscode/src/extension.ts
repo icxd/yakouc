@@ -54,7 +54,7 @@ function resolveJarPath(context: vscode.ExtensionContext): string | undefined {
   return undefined;
 }
 
-function buildInitializationOptions(): Record<string, unknown> {
+function buildInitializationOptions(output?: vscode.OutputChannel): Record<string, unknown> {
   const c = vscode.workspace.getConfiguration("yakou");
   const out: Record<string, unknown> = {};
   const sr = substituteWorkspace(c.get<string>("sourceRoot", "").trim());
@@ -65,6 +65,26 @@ function buildInitializationOptions(): Record<string, unknown> {
   const resolved = (cp ?? []).map((p) => substituteWorkspace(p)).filter((s) => s.length > 0);
   if (resolved.length > 0) {
     out.classpath = resolved;
+  }
+  const cff = substituteWorkspace(c.get<string>("classpathFile", "").trim());
+  if (cff.length > 0) {
+    out.classpathFile = cff;
+    if (!fs.existsSync(cff)) {
+      const hint =
+        "Optional: File > Open Workspace from File… → yakou.code-workspace (repo root), or open the examples/minecraft-plugin folder, then run: cd examples/minecraft-plugin && mvn generate-sources";
+      void vscode.window.showWarningMessage(
+        `Yakou: classpath file not found: ${cff}. Java types (e.g. JavaPlugin) will not resolve until this file exists. ${hint}`,
+        "OK"
+      );
+      output?.appendLine(
+        `[yakou]classpathFile missing: ${cff} (merge ${path.join(
+          "examples",
+          "minecraft-plugin",
+          "target",
+          "yakou-ls.classpath"
+        )} via mvn generate-sources in that module)`
+      );
+    }
   }
   return out;
 }
@@ -88,7 +108,7 @@ function createClient(context: vscode.ExtensionContext, jarPath: string): Langua
       { scheme: "untitled", language: "yakou" },
     ],
     outputChannel,
-    initializationOptions: buildInitializationOptions(),
+    initializationOptions: buildInitializationOptions(outputChannel),
   };
 
   return new LanguageClient(

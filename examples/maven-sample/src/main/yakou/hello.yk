@@ -1,0 +1,24 @@
+use java::lang::System;
+use java::io::PrintStream;
+use java::util::ArrayList;
+
+class Foo(let a: i32) {
+    fn foo(self): i32 {
+        self.a
+    }
+}
+
+fn main(): unit {
+    let a = 10;
+    let b = 20;
+    let c = a + b;
+
+    let out = System::out;
+    out.println("HI");
+
+    let foo = Foo(10);
+    foo.foo();
+
+    System::out.println("AAAAAAA");
+    System::out.println("Hello, Yakou!")
+}

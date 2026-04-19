@@ -78,4 +78,18 @@ cd examples/minecraft-plugin
 mvn package
 ```
 
-Install **`examples/minecraft-plugin/target/hello-yakou-paper-1.0.0-SNAPSHOT.jar`** into your Paper server’s `plugins/` folder. Adjust **`paper.api.version`** in that `pom.xml` to match your server. See `examples/minecraft-plugin/src/main/yk/hello.yk` for the Yakou side.
+Install **`examples/minecraft-plugin/target/hello-yakou-paper-1.0.0-SNAPSHOT.jar`** into your Paper server’s `plugins/` folder. Adjust **`paper.api.version`** in that `pom.xml` to match your server. Sources live under `src/main/yakou/`.
+
+### Language server (Cursor / VS Code)
+
+The language server completes **`java::`** paths using the running JDK’s module image and merges **`target/yakou-ls.classpath`** from Maven when present (dependency JARs). **`examples/maven-sample`** writes that file in **`generate-sources`** so third-party deps match the compile classpath.
+
+After **`mvn generate-sources`** (or any build) in **`examples/maven-sample`**, choose one workflow:
+
+1. **Recommended when editing from the repo root:** **File → Open Workspace from File…** and pick **`yakou.code-workspace`**. Its workspace settings point **`yakou.classpathFile`** at **`examples/maven-sample/target/yakou-ls.classpath`** (nested **`examples/maven-sample/.vscode/`** is **not** merged when you only open the root folder).
+
+2. **Open Folder** on **`examples/maven-sample`** so **`.vscode/settings.json`** applies.
+
+3. With a single root open on **`yakou`**, set **`yakou.classpathFile`** to **`${workspaceFolder}/examples/maven-sample/target/yakou-ls.classpath`**, or list JARs in **`yakou.classpath`**.
+
+If **`classpathFile`** is set but missing, the extension warns; regenerate with **`mvn generate-sources`** in that module. Restart the Yakou language client after **`yakou.*`** changes if needed.

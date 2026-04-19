@@ -1,5 +1,16 @@
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/CompletionExprs.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/CompletionScopes.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/HoverExprs.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/LsAstMethods.java
 /Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/LspPositions.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/NominalAst.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouAnalysis.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouCompletions.java
 /Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouDiagnostics.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouFileContext.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouHover.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouInlayHints.java
+/Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouKeywords.java
 /Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouLanguageServer.java
 /Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouLanguageServerLauncher.java
 /Users/icxd/dev/java/yakou/language-server/src/main/java/dev/icxd/yakou/ls/YakouServerState.java

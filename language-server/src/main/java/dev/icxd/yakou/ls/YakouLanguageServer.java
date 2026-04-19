@@ -1,5 +1,6 @@
 package dev.icxd.yakou.ls;
 
+import org.eclipse.lsp4j.CompletionOptions;
 import org.eclipse.lsp4j.InitializeParams;
 import org.eclipse.lsp4j.InitializeResult;
 import org.eclipse.lsp4j.ServerCapabilities;
@@ -10,6 +11,7 @@ import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4j.services.TextDocumentService;
 import org.eclipse.lsp4j.services.WorkspaceService;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public final class YakouLanguageServer implements LanguageServer, LanguageClientAware {
@@ -37,6 +39,12 @@ public final class YakouLanguageServer implements LanguageServer, LanguageClient
         state.applyInitialize(params);
         ServerCapabilities caps = new ServerCapabilities();
         caps.setTextDocumentSync(TextDocumentSyncKind.Full);
+        CompletionOptions comp = new CompletionOptions();
+        comp.setResolveProvider(false);
+        comp.setTriggerCharacters(List.of(".", ":"));
+        caps.setCompletionProvider(comp);
+        caps.setHoverProvider(true);
+        caps.setInlayHintProvider(true);
         InitializeResult result = new InitializeResult();
         result.setCapabilities(caps);
         return CompletableFuture.completedFuture(result);

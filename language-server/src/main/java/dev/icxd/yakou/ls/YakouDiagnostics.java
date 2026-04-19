@@ -14,8 +14,6 @@ import dev.icxd.yakou.typeck.TypeIssue;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
 
-import java.net.URI;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +27,13 @@ final class YakouDiagnostics {
     }
 
     static List<Diagnostic> analyze(String documentUri, String text, YakouServerState state) {
-        String docLabel = safePathLabel(documentUri);
-        List<Path> classpath = state.classpath();
+        String docLabel = YakouFileContext.safePathLabel(documentUri);
+        List<Path> classpath = state.effectiveClasspath();
         List<Diagnostic> out = new ArrayList<>();
 
-        Optional<Path> sourceRoot = resolveSourceRoot(state);
+        Optional<Path> sourceRoot = YakouFileContext.resolveSourceRoot(state);
 
-        Optional<Path> filePath = filePath(documentUri);
+        Optional<Path> filePath = YakouFileContext.filePath(documentUri);
         AstFile ast;
         try {
             var tokens = new Lexer(text, docLabel).tokenizeAll();
@@ -106,42 +104,5 @@ final class YakouDiagnostics {
                 message,
                 DiagnosticSeverity.Error,
                 SOURCE);
-    }
-
-    private static Optional<Path> resolveSourceRoot(YakouServerState state) {
-        if (state.configuredSourceRoot().isPresent()) {
-            return state.configuredSourceRoot();
-        }
-        Optional<Path> ws = state.workspaceRoot();
-        if (ws.isEmpty()) {
-            return Optional.empty();
-        }
-        Path candidate = ws.get().resolve("src/main/yakou");
-        if (Files.isDirectory(candidate)) {
-            return Optional.of(candidate.toAbsolutePath().normalize());
-        }
-        return Optional.empty();
-    }
-
-    private static Optional<Path> filePath(String documentUri) {
-        if (!documentUri.startsWith("file:")) {
-            return Optional.empty();
-        }
-        try {
-            return Optional.of(Path.of(URI.create(documentUri)));
-        } catch (@SuppressWarnings("unused") Exception e) {
-            return Optional.empty();
-        }
-    }
-
-    private static String safePathLabel(String documentUri) {
-        try {
-            if (documentUri.startsWith("file:")) {
-                return Path.of(URI.create(documentUri)).toAbsolutePath().normalize().toString();
-            }
-        } catch (@SuppressWarnings("unused") Exception ignored) {
-            // fall through
-        }
-        return documentUri;
     }
 }

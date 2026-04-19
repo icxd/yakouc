@@ -20,6 +20,8 @@
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/ast/TypeParam.java
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/ast/TypeRef.java
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/ast/WhenArm.java
+/Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/cp/ClasspathIndex.java
+/Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/cp/JavaMemberCompletion.java
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/diagnostics/Ansi.java
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/diagnostics/DiagnosticFormatter.java
 /Users/icxd/dev/java/yakou/compiler/src/main/java/dev/icxd/yakou/diagnostics/SourceSnippet.java
