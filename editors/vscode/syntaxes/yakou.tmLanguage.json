@@ -1,0 +1,238 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Yakou",
+  "scopeName": "source.yakou",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#annotation"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#fn-def"
+    },
+    {
+      "include": "#type-defs"
+    },
+    {
+      "include": "#keyword-type-kw"
+    },
+    {
+      "include": "#keyword-control"
+    },
+    {
+      "include": "#keyword-decl"
+    },
+    {
+      "include": "#keyword-modifier"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#primitive-types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#namespace-op"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.yakou",
+          "match": "//[^\\n]*"
+        },
+        {
+          "name": "comment.block.yakou",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "patterns": [
+            {
+              "include": "#comments"
+            }
+          ]
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.yakou",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.yakou",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "annotation": {
+      "contentName": "meta.annotation.body.yakou",
+      "begin": "(#)\\s*(\\{)",
+      "end": "\\}",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.operator.attribute.yakou"
+        },
+        "2": {
+          "name": "punctuation.definition.annotation.begin.yakou"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.annotation.end.yakou"
+        }
+      },
+      "name": "meta.annotation.yakou",
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#annotation-java"
+        }
+      ]
+    },
+    "annotation-java": {
+      "patterns": [
+        {
+          "match": "\\b(new|instanceof|class|interface|extends|implements|public|private|protected|static|final|abstract|volatile|transient|synchronized|native|strictfp|void|return|throw|throws|this|super|import|package|null)\\b",
+          "name": "keyword.other.java-embed.yakou"
+        },
+        {
+          "match": "\\b(boolean|byte|char|short|int|long|float|double)\\b",
+          "name": "storage.type.primitive.java-embed.yakou"
+        },
+        {
+          "name": "string.quoted.double.java-embed.yakou",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.java-embed.yakou",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b",
+          "name": "entity.name.type.java-embed.yakou"
+        },
+        {
+          "match": "(@[a-zA-Z_][\\w]*)",
+          "name": "storage.type.annotation.java-embed.yakou"
+        },
+        {
+          "match": "[a-z][a-zA-Z0-9_]*",
+          "name": "variable.other.java-embed.yakou"
+        },
+        {
+          "match": "[\\{\\}\\(\\)<>\\[\\];,\\.&|=!+\\-*/%^~?:]",
+          "name": "punctuation.java-embed.yakou"
+        }
+      ]
+    },
+    "fn-def": {
+      "match": "\\b(fn)\\s+([a-zA-Z_][\\w]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.function.yakou"
+        },
+        "2": {
+          "name": "entity.name.function.yakou"
+        }
+      }
+    },
+    "type-defs": {
+      "patterns": [
+        {
+          "match": "\\b(class)\\s+([a-zA-Z_][\\w]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.declaration.class.yakou"
+            },
+            "2": {
+              "name": "entity.name.type.class.yakou"
+            }
+          }
+        },
+        {
+          "match": "\\b(trait)\\s+([a-zA-Z_][\\w]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.declaration.trait.yakou"
+            },
+            "2": {
+              "name": "entity.name.type.trait.yakou"
+            }
+          }
+        }
+      ]
+    },
+    "keyword-type-kw": {
+      "match": "\\b(trait|class|fn)\\b",
+      "name": "keyword.declaration.yakou"
+    },
+    "keyword-control": {
+      "match": "\\b(if|else|when)\\b",
+      "name": "keyword.control.yakou"
+    },
+    "keyword-decl": {
+      "match": "\\b(use|pkg|let|sealed)\\b",
+      "name": "keyword.declaration.yakou"
+    },
+    "keyword-modifier": {
+      "match": "\\b(mut|pub|priv|open|override|self|is)\\b",
+      "name": "storage.modifier.yakou"
+    },
+    "constants": {
+      "match": "\\b(true|false)\\b",
+      "name": "constant.language.yakou"
+    },
+    "primitive-types": {
+      "match": "\\b(i8|i16|i32|i64|u16|u32|f32|f64|str|bool|unit|bytes)\\b",
+      "name": "support.type.primitive.yakou"
+    },
+    "numbers": {
+      "match": "(?<!\\.)\\d+(?!\\.)",
+      "name": "constant.numeric.integer.yakou"
+    },
+    "namespace-op": {
+      "match": "::",
+      "name": "keyword.operator.namespace.yakou"
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "<:",
+          "name": "keyword.operator.subtype.yakou"
+        },
+        {
+          "match": "==|!=|<=|>=",
+          "name": "keyword.operator.comparison.yakou"
+        },
+        {
+          "match": "=|\\+|\\-|\\*|/|<|>|!",
+          "name": "keyword.operator.yakou"
+        },
+        {
+          "match": "\\.|,|;|:|\\(|\\)|\\{|\\}|\\[|\\]",
+          "name": "punctuation.yakou"
+        }
+      ]
+    }
+  }
+}

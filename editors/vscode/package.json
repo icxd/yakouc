@@ -33,6 +33,13 @@
         "configuration": "./language-configuration.json"
       }
     ],
+    "grammars": [
+      {
+        "language": "yakou",
+        "scopeName": "source.yakou",
+        "path": "./syntaxes/yakou.tmLanguage.json"
+      }
+    ],
     "configuration": {
       "title": "Yakou",
       "properties": {
