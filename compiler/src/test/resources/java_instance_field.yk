@@ -1,0 +1,7 @@
+use java::awt::Toolkit;
+use java::awt::Dimension;
+
+fn main(): unit {
+  let d: Dimension = Toolkit::getDefaultToolkit().getScreenSize();
+  let w = d.width;
+}

@@ -1,0 +1,6 @@
+use java::lang::System;
+
+fn main(): unit {
+    let a = "Hello";
+    System::out.println(a)
+}

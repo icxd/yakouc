@@ -1,0 +1,24 @@
+use org::bukkit::plugin::java::JavaPlugin;
+use org::bukkit::plugin::Plugin;
+use dev::icxd::commands::HelloCommand;
+
+use org::bukkit::event::Listener;
+use org::bukkit::event::EventHandler;
+use org::bukkit::event::player::PlayerJoinEvent;
+
+class JoinListener(let plugin: Plugin): Listener {
+  #{EventHandler}
+  fn on_join(self, e: PlayerJoinEvent): unit {
+    self.plugin.getLogger().info("WE JOINEDDDD")
+  }
+}
+
+class HelloYakouPlugin(): JavaPlugin {
+  override fn onEnable(self): unit {
+    self.getLogger().info("Hello, Yakou!");
+
+    self.getCommand("hello").setExecutor(HelloCommand(self));
+
+    self.getServer().getPluginManager().registerEvents(JoinListener(self), self);
+  }
+}

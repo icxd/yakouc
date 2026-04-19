@@ -1,0 +1,78 @@
+{
+  "name": "yakou-lang",
+  "displayName": "Yakou",
+  "description": "Language support for Yakou via yakou-ls (diagnostics, future completions).",
+  "version": "0.1.0",
+  "publisher": "icxd",
+  "license": "Apache-2.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "yakou",
+    "language",
+    "lsp"
+  ],
+  "activationEvents": [
+    "onLanguage:yakou"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "yakou",
+        "aliases": [
+          "Yakou"
+        ],
+        "extensions": [
+          ".yk"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configuration": {
+      "title": "Yakou",
+      "properties": {
+        "yakou.javaPath": {
+          "type": "string",
+          "default": "java",
+          "description": "Java executable used to run yakou-ls (must be on PATH or an absolute path)."
+        },
+        "yakou.languageServerJar": {
+          "type": "string",
+          "default": "",
+          "description": "Path to yakou-ls.jar. If empty, uses YAKOU_LS_JAR or, when developing this repo, language-server/target/yakou-ls.jar relative to the repo root."
+        },
+        "yakou.sourceRoot": {
+          "type": "string",
+          "default": "",
+          "description": "Optional Yakou source root for implicit packages (passed to the server as initializationOptions.sourceRoot). ${workspaceFolder} is expanded."
+        },
+        "yakou.classpath": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Classpath entries for Java interop typechecking (initializationOptions.classpath). ${workspaceFolder} is expanded in each entry."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "package": "npm run compile && npx --yes @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

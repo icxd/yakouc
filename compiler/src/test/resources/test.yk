@@ -1,0 +1,78 @@
+use java::util::ArrayList;
+use java::lang::System;
+
+trait Display {
+  fn fmt(self): str;
+}
+
+class ParseErr(): Display {
+  override fn fmt(self): str = "ParseErr";
+}
+
+// Compiler figures out all subclasses at compile-time.
+// Only subclasses in the same package are allowed.
+sealed trait Result[T, E <: Display] {
+  fn is_ok(self): bool;
+  fn is_err(self): bool;
+}
+
+class Ok[T, E <: Display](let value: T): Result[T, E] {
+  override fn is_ok(self): bool = true;
+  override fn is_err(self): bool = false;
+}
+
+class Err[T, E <: Display](let err: E): Result[T, E] {
+  override fn is_ok(self): bool = false;
+  override fn is_err(self): bool = true;
+}
+
+// Everything is public by default.
+pkg demo {
+  class User(
+    let id: i64,
+    mut name: str,
+  ): Display {
+    // `self` is added to instance methods.
+    priv fn display(self): str {
+      // Last expression is returned.
+      self.name
+    }
+
+    override fn fmt(self): str = self.display();
+
+    // Since there's no `self`, this is static.
+    fn parse(s: str): Result[User, ParseErr] {
+      Ok[User, ParseErr](User(123, "bruhman"))
+    }
+  }
+
+  open class Animal(let name: str);
+
+  class Dog(let name: str, let loudness: i32): Animal(name);
+}
+
+// Since everything in Yakou is public by default, you can
+// declare entire packages as private by saying `priv pkg`.
+// This means that anything you want to be public has to be
+// declared as public using `pub` inside of the package.
+priv pkg internal {
+  fn im_private(): unit {}
+
+  pub fn im_public(): unit {}
+}
+
+fn max(a: i32, b: i32): i32 {
+  if (a >= b) { a } else { b }
+}
+
+fn main(): unit {
+  let user = demo::User::parse("...");
+  when user {
+    is Ok(v) {
+      System::out.println("is ok! " + v.fmt())
+    }
+    is Err(err) {
+      System::out.println("is not ok! " + err.fmt())
+    }
+  }
+}

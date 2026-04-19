@@ -1,0 +1,6 @@
+class Box[T](let t: T);
+
+fn main(): unit {
+  let a = Box[i32](1);
+  let b = Box(1);
+}

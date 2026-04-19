@@ -1,0 +1,16 @@
+use org::bukkit::plugin::Plugin;
+use org::bukkit::command::CommandExecutor;
+use org::bukkit::command::CommandSender;
+use org::bukkit::command::Command;
+
+class HelloCommand(let plugin: Plugin): CommandExecutor {
+  override fn onCommand(self, sender: CommandSender, cmd: Command, label: str, args: []str): bool {
+    if (args.length == 1) {
+      self.plugin.getLogger().info("HELLOOO " + args[0] + "!!!!");
+      true
+    } else {
+      self.plugin.getLogger().info("HELLO!!!!!!");
+      true
+    }
+  }
+}

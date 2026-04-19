@@ -1,0 +1,9 @@
+name: HelloYakou
+version: '${project.version}'
+main: dev.icxd.HelloYakouPlugin
+description: Minimal demo
+api-version: '1.21'
+commands:
+  hello:
+    description: Say hello to Yakou
+    usage: /hello

@@ -1,0 +1,19 @@
+sealed trait S {
+  fn tag(self): i32;
+}
+
+class A(): S {
+  override fn tag(self): i32 = 0;
+}
+
+class B(): A {}
+
+fn main(): unit {
+  let s: S = B();
+  when s {
+    is B() {
+    }
+    is A() {
+    }
+  }
+}

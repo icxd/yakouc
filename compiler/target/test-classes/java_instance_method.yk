@@ -1,0 +1,6 @@
+use java::lang::String;
+
+fn main(): unit {
+  let s: String = "hi";
+  let n = s.length();
+}

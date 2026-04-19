@@ -1,0 +1,10 @@
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/SourcePackageTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/YakoucTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/ast/AstPrinterTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/diagnostics/DiagnosticFormatterTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/diagnostics/SourceSnippetTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/emit/AsmDescriptorsTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/parse/ParserTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/resolve/NameResolverTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/syntax/LexerTest.java
+/Users/icxd/dev/java/yakou/compiler/src/test/java/dev/icxd/yakou/typeck/TypeCheckerTest.java

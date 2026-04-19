@@ -1,0 +1,10 @@
+dev/icxd/yakou/diagnostics/SourceSnippetTest.class
+dev/icxd/yakou/emit/AsmDescriptorsTest.class
+dev/icxd/yakou/YakoucTest.class
+dev/icxd/yakou/parse/ParserTest.class
+dev/icxd/yakou/syntax/LexerTest.class
+dev/icxd/yakou/diagnostics/DiagnosticFormatterTest.class
+dev/icxd/yakou/resolve/NameResolverTest.class
+dev/icxd/yakou/typeck/TypeCheckerTest.class
+dev/icxd/yakou/SourcePackageTest.class
+dev/icxd/yakou/ast/AstPrinterTest.class

@@ -1,0 +1,5 @@
+use java::lang::Object;
+
+/// Extending a classpath JVM type with a no-arg constructor.
+class JvmSub(): Object {
+}

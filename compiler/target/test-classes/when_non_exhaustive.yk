@@ -1,0 +1,22 @@
+sealed trait E {
+  fn u(self): unit;
+}
+
+class Pair(let x: i32, let y: i32): E {
+  override fn u(self): unit {}
+}
+
+class UnitE(): E {
+  override fn u(self): unit {}
+}
+
+fn partial(e: E): unit {
+  when e {
+    is Pair(a, b) {
+    }
+  }
+}
+
+fn main(): unit {
+  partial(Pair(1, 2));
+}
